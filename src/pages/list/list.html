@@ -1,0 +1,77 @@
+<ion-header>
+    <ion-navbar color="dark">
+        <button ion-button menuToggle >
+          <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Agregar Cliente</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content text-center>
+  <h3>Ingresa los datos del nuevo cliente</h3>
+
+  <form [formGroup]="todo" (ngSubmit)="logForm()">
+      <ion-list inset class="lista">
+
+          <ion-item class="lista1" (click)=recuperandoNum()>
+            <ion-label  floating>Numero de celular</ion-label>
+            <ion-input type="number" formControlName="numero"></ion-input>
+          </ion-item>
+        
+          <ion-item class="lista1">
+            <ion-label floating>Nombre del cliente</ion-label>
+            <ion-input type="text" formControlName="nombre"></ion-input>
+          </ion-item>
+          <ion-item class="lista1">
+              <ion-label floating>Correo</ion-label>
+              <ion-input type="text" formControlName="correo"></ion-input>
+          </ion-item>
+          <ion-item class="lista1">
+              <ion-label floating>Contraseña</ion-label>
+              <ion-input type="text" formControlName="contraseña"></ion-input>
+          </ion-item>
+          <ion-item class="lista1">
+              <ion-row text-left>
+                  <ion-col col-9>
+                    <br>
+                      <h2>Meses Contratados: </h2>
+                    </ion-col>
+                    <ion-col col-3>
+                      <br>
+                      <h4 (click)="doRadio()">{{Meses}}<ion-icon  name="arrow-dropdown"></ion-icon> </h4>
+                    </ion-col>
+              </ion-row>
+              
+                
+            </ion-item>
+  
+            <ion-item class="lista1">
+                <ion-row text-left>
+                    <ion-col col-9>
+                      <br>
+                        <h2>Dispositivos: </h2>
+                      </ion-col>
+                      <ion-col col-3>
+                        <br>
+                        <h4 (click)="doRadio1()">{{Dispositivos}}<ion-icon  name="arrow-dropdown"></ion-icon> </h4>
+                      </ion-col>
+                </ion-row>
+                
+                  
+              </ion-item>
+              
+        </ion-list>
+    </form>
+    <ion-item>
+        <ion-label>Fecha de entrega:</ion-label>
+        <ion-datetime displayFormat="DD MMM YYYY" max="2030" min="2018" [(ngModel)]="myDate"></ion-datetime>
+      </ion-item>
+      <ion-item>
+          <ion-label>Fecha de vencimiento:</ion-label>
+          <ion-datetime displayFormat="DD MMM YYYY" max="2030" min="2018" [(ngModel)]="myDate1"></ion-datetime>
+        </ion-item>
+
+      <button style="margin-top: 40px" ion-button type="submit" [disabled]="!todo.valid" (click)="logForm()">Agregar Cliente</button>
+      
+    
+</ion-content>

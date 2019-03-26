@@ -1,0 +1,32 @@
+
+<ion-header>
+  <ion-navbar color="dark">
+    <button ion-button menuToggle >
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-row>
+      <ion-col col-6>
+          <ion-title style="height: 40px;">whatsappAuto</ion-title>
+      </ion-col>
+      <ion-col col-6>
+          <ion-datetime style="color: white" displayFormat="DD MMM YYYY" max="2030" min="2018" [(ngModel)]="event.timeEnds"></ion-datetime>
+        </ion-col>
+    </ion-row>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content text-center padding>
+    <button  ion-button (click)="esHoy()">Actualizar</button>
+  <button  ion-button (click)="siguiente()">Siguiente</button>
+
+    <ion-list inset >
+        <ion-item *ngFor="let user of users" (click)="irDetalles(user.numero)" >
+              <h2>{{user.numero}}</h2>
+              <h3>{{user.correo}}</h3>
+              <p>Paquete: {{user.meses}} Mes {{user.dispositivos}} Disp  Vence: {{user.vence}}</p>
+        </ion-item>
+       
+      </ion-list>
+
+</ion-content>

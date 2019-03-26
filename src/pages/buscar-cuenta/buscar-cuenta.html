@@ -1,0 +1,26 @@
+
+<ion-header>
+    <ion-navbar color="dark">
+        <button ion-button menuToggle >
+          <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Buscar Cuenta</ion-title>
+    </ion-navbar>
+    <ion-searchbar style="background-color: #222"
+    placeholder ="Buscar"
+  [(ngModel)]="myInput"
+  [showCancelButton]="shouldShowCancel"
+  (ionInput)="getItems($event)"
+  (ionCancel)="onCancel($event)">
+</ion-searchbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+      <ion-item *ngFor="let user of items1" (click)="irDetalles(user.numero)">
+        {{user.correo}}
+      </ion-item>
+    </ion-list>
+  
+  </ion-content>

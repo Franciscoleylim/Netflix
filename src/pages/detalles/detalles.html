@@ -1,0 +1,68 @@
+
+<ion-header>
+
+  <ion-navbar  color="dark">
+    <ion-title>Detalles</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content text-center padding style="margin-top: 30px" *ngFor="let user of items">
+
+    <h1 style="margin-top: 20px; color: black" (click)="copiartexto(user.numero,user.correo)">Cliente: {{user.numero}}</h1>
+    <h3 style="margin-top: 20px; color: black" ><a href="{{api}}">Mensaje Whatsapp</a> </h3>
+
+    <h4 (click)="doRadio()">Mensaje<ion-icon  name="arrow-dropdown"></ion-icon> </h4>
+    <form [formGroup]="todo" (ngSubmit)="ActForm()">
+        <ion-list inset class="lista">
+  
+            <ion-item class="lista1" >
+              <ion-label  floating>Numero de celular</ion-label>
+              <ion-input type="number" formControlName="numero" value="{{user.numero}}"></ion-input>
+            </ion-item>
+          
+            <ion-item class="lista1">
+              <ion-label floating>Nombre del cliente</ion-label>
+              <ion-input type="text" formControlName="nombre" value="{{user.nombre}}"></ion-input>
+            </ion-item>
+            <ion-item class="lista1">
+                <ion-label floating>Correo</ion-label>
+                <ion-input type="text" formControlName="correo" value="{{user.correo}}"></ion-input>
+            </ion-item>
+            <ion-item class="lista1">
+                <ion-label floating>Contraseña</ion-label>
+                <ion-input type="text" formControlName="contraseña" value="{{user.contra}}"></ion-input>
+            </ion-item>
+            <ion-item class="lista1">
+                <ion-label floating>Meses</ion-label>
+                <ion-input type="text" formControlName="meses" value="{{user.meses}}"></ion-input>
+            </ion-item>
+            <ion-item class="lista1">
+                <ion-label floating>Dispositivos</ion-label>
+                <ion-input type="text" formControlName="disp" value="{{user.dispositivos}}"></ion-input>
+            </ion-item>
+            <ion-item class="lista1">
+                <ion-label floating>Entregada</ion-label>
+                <ion-input type="text" formControlName="entre" [ngModel]="steperro" value="{{user.entrega}}"></ion-input>
+            </ion-item>
+            <ion-item class="lista1">
+                <ion-label floating>Vence</ion-label>
+                <ion-input type="text" formControlName="vence" [ngModel]="steperro1" value="{{user.vence}}"></ion-input>
+            </ion-item>
+            <ion-item class="lista1">
+                <ion-label floating>Listo???</ion-label>
+                <ion-input type="text" formControlName="listo" ></ion-input>
+            </ion-item>
+           
+            <button style="margin-top: 40px" ion-button type="submit" [disabled]="!todo.valid" >Actualizar Cliente</button>
+            
+        </ion-list>
+         
+      </form>
+      <button  ion-button [disabled]="!todo.valid" (click)="unMes()">Actualizar 1 mes</button>
+      <br>
+      <button style="margin-top: 20px" ion-button [disabled]="!todo.valid" (click)="DelForm()">Eliminar Cliente</button>
+      <br><br>
+
+</ion-content>
